@@ -26,10 +26,11 @@ const actorsData = [
 // Function to find actors by movie name
 
 function findActorByMoviesName(movieName) {
+   // For checking validation whether the input is string
    if (!movieName || typeof movieName !== 'string') {
        throw new Error('Invalid input. Please provide a valid movie name.');
    }
-
+// Filters the actor name through the data and maps only the name which is matchedactors
    const matchedActors = actorsData.filter(actor => actor.movies.includes(movieName)).map(actor => actor.name);
 
    if (matchedActors.length === 0) {
@@ -42,6 +43,7 @@ function findActorByMoviesName(movieName) {
 // Function to find movies by actor name
 
 function findMoviesByActorName(actorName) {
+   //For checking validation whether the input is string
    if (!actorName || typeof actorName !== 'string') {
        throw new Error('Invalid input. Please provide a valid actor name.');
    }
@@ -54,5 +56,5 @@ function findMoviesByActorName(actorName) {
 
    return actor.movies;
 }
-
+// for exporting the models to run in node
 module.exports = { findActorByMoviesName, findMoviesByActorName };
